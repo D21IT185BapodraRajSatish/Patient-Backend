@@ -25,6 +25,11 @@ public class PatientRecordController {
         return patientRecordRepository.findById(patientId).get();
     }
 
+    @GetMapping
+    public String getWelcomeMessage(){
+        return "<h1> Welcome to the world of Spring Boot</h1>";
+    }
+
     @PostMapping("/patient")
     public String addPatient(@RequestBody PatientRecord patientRecord){
         Boolean  patientExists = patientRecordRepository.existsById(patientRecord.getPatientId());
